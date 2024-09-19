@@ -256,7 +256,7 @@ class HttpApi(HttpApiBase):
         check_system_status = self._options.get('check_system_status', True)
         if not check_system_status or self._system_version:
             return
-        url = '/api/v2/monitor/system/status?vdom=root'
+        url = '/api/v2/monitor/system/status'
         status, result = self.send_request(url=url)
         result_json = json.loads(result)
         self._system_version = result_json.get('version', 'undefined')
